@@ -1,4 +1,4 @@
-package Commands;
+package Commands.Abstracts;
 
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

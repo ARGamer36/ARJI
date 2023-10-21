@@ -1,4 +1,4 @@
-package Commands;
+package Commands.Abstracts;
 
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
@@ -6,7 +6,11 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 public abstract class PrefixCommand {
     public String name;
     public String description;
-    public boolean compare(String command) {
+    public PrefixCommand() {
+        name = "CommandName";
+        description = "CommandDescription";
+    }
+    public boolean matchesCommand(String command) {
         return command.equalsIgnoreCase(name);
     }
     public void action(MessageReceivedEvent event) {

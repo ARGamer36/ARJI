@@ -3,7 +3,7 @@ package Commands;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class PrefixCommand {
+public abstract class PrefixCommand {
     public String name;
     public String description;
     public boolean compare(String command) {

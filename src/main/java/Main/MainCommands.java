@@ -1,11 +1,8 @@
 package Main;
 
+import Commands.*;
 import Commands.Abstracts.PrefixCommand;
-import Commands.PingCommand;
-import Commands.SetPrefixCommand;
 import Commands.Abstracts.SlashCommand;
-import Commands.OnCommand;
-import Commands.VersionCommand;
 import Information.ServerStorage;
 import Information.VariableChecks;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
@@ -25,6 +22,7 @@ public abstract class MainCommands extends ListenerAdapter {
         prefixCommands.add(new OnCommand());
         prefixCommands.add(new SetPrefixCommand());
         prefixCommands.add(new PingCommand());
+        prefixCommands.add(new BuildTime());
     }
 
     @Override

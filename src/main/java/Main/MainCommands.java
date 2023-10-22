@@ -6,6 +6,7 @@ import Commands.SetPrefixCommand;
 import Commands.Abstracts.SlashCommand;
 import Commands.OnCommand;
 import Commands.VersionCommand;
+import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -21,6 +22,11 @@ public abstract class MainCommands extends ListenerAdapter {
         prefixCommands.add(new OnCommand());
         prefixCommands.add(new SetPrefixCommand());
         prefixCommands.add(new PingCommand());
+    }
+
+    @Override
+    public void onGuildReady(GuildReadyEvent event) {
+        super.onGuildReady(event);
     }
 
     @Override

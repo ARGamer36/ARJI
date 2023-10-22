@@ -6,6 +6,7 @@ import Commands.SetPrefixCommand;
 import Commands.Abstracts.SlashCommand;
 import Commands.OnCommand;
 import Commands.VersionCommand;
+import Information.VariableChecks;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

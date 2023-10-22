@@ -2,7 +2,7 @@ package Commands;
 
 import Commands.Abstracts.PrefixCommand;
 import Main.ClearanceChecks;
-import Main.VariableChecks;
+import Information.VariableChecks;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class SetPrefixCommand extends PrefixCommand {

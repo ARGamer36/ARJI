@@ -1,4 +1,4 @@
-package Main;
+package Information;
 
 public class VariableChecks {
     public static String PREFIX = "!";

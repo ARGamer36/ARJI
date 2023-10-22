@@ -32,7 +32,7 @@ public class BuildTime extends PrefixCommand {
     }
 
     public static String getBuiltTime() throws IOException {
-        String timeStamp = new String(Files.readAllBytes(Paths.get("build_info.txt")));
+        String timeStamp = new String(Files.readAllBytes(Paths.get("buildInfo.txt")));
         DateTimeFormatter inputFormat = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm:ss z");
         ZonedDateTime utcTime = ZonedDateTime.parse(timeStamp, inputFormat.withZone(ZoneId.of("UTC")));
         ZonedDateTime estTime = utcTime.withZoneSameInstant(ZoneId.of("America/New_York"));

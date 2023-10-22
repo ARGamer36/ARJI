@@ -6,11 +6,13 @@ import Commands.SetPrefixCommand;
 import Commands.Abstracts.SlashCommand;
 import Commands.OnCommand;
 import Commands.VersionCommand;
+import Information.ServerStorage;
 import Information.VariableChecks;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,11 @@ public abstract class MainCommands extends ListenerAdapter {
 
     @Override
     public void onGuildReady(GuildReadyEvent event) {
-        super.onGuildReady(event);
+        try {
+            ServerStorage.createServerFilePath(event.getGuild());
+        } catch (IOException e) {
+            event.getGuild().getSystemChannel().sendMessage("FAILED TO STORE INFO");
+        }
     }
 
     @Override

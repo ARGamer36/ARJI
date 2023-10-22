@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileAccessor {
+    final public static String FOLDER = "Storage";
     public static void createDirectories(String filePath) throws IOException {
         Path path = Paths.get(filePath);
         Files.createDirectories(path);
@@ -28,6 +29,16 @@ public class FileAccessor {
         }
         fileOut.close();
     }
+    public static String getFileString(String filePath) throws FileNotFoundException {
+        File file = new File(filePath);
+        Scanner input = new Scanner(file);
+        String output = "";
+        while (input.hasNextLine()) {
+            output += input.nextLine();
+        }
+        input.close();
+        return output;
+    }
     public static List getFileList(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         Scanner input = new Scanner(file);
@@ -41,5 +52,11 @@ public class FileAccessor {
     public static boolean deleteFile(String filePath) {
         File file = new File(filePath);
         return file.delete();
+    }
+    public static String createFilePathString(String parent, String child) {
+        return parent + "/" + child;
+    }
+    public static String createFilePathString(String child) {
+        return createFilePathString(FOLDER, child);
     }
 }

@@ -23,7 +23,7 @@ public abstract class SlashCommand {
         SlashCommandData data = Commands.slash(name, description);
         try {
             data.addOptions(options);
-        } catch (NullPointerException e) {}
+        } catch (IllegalArgumentException e) {}
         return data;
     }
     public void action(SlashCommandInteractionEvent event) {

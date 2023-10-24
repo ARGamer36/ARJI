@@ -19,6 +19,7 @@ public abstract class MainCommands extends ListenerAdapter {
     public List<PrefixCommand> prefixCommands;
     public List<SlashCommand> slashCommands;
     public MainCommands(String version) {
+        slashCommands = new ArrayList<>();
         prefixCommands = new ArrayList<>();
         prefixCommands.add(new VersionCommand(version));
         prefixCommands.add(new OnCommand());

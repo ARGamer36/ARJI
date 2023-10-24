@@ -12,6 +12,13 @@ public abstract class SlashCommand {
     public String name;
     public String description;
     public List<OptionData> options;
+
+    public SlashCommand() {
+        name = "commandName";
+        description = "commandDescription";
+        options = null;
+    }
+
     public SlashCommandData getData() {
         SlashCommandData data = Commands.slash(name, description);
         try {

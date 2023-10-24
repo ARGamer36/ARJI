@@ -32,6 +32,7 @@ public abstract class MainCommands extends ListenerAdapter {
         } catch (IOException e) {
             event.getGuild().getSystemChannel().sendMessage("FAILED TO STORE INFO");
         }
+        sendServerMessage(event, "Bot Activated");
     }
 
     @Override
@@ -46,5 +47,9 @@ public abstract class MainCommands extends ListenerAdapter {
                 }
             }
         }
+    }
+    public void sendServerMessage(GuildReadyEvent event, String message) {
+        String botChannel = VariableChecks.getBotChannel(event);
+        event.getGuild().getTextChannelById(botChannel).sendMessage(message).queue();
     }
 }

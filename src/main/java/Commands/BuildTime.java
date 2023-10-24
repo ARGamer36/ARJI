@@ -23,7 +23,6 @@ public class BuildTime extends PrefixCommand {
     public void action(MessageReceivedEvent event) {
         if (ClearanceChecks.isAdmin(event.getMember())) {
             try {
-                System.out.println(getBuiltTime());
                 event.getMessage().reply(getBuiltTime()).queue();
             } catch (IOException e) {
                 event.getMessage().reply("FAILED TO GET BUILD TIME").queue();

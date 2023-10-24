@@ -29,15 +29,16 @@ public class FileAccessor {
         }
         fileOut.close();
     }
-    public static String getFileString(String filePath) throws FileNotFoundException {
+    public static void rewriteFile(String filePath, String input) throws FileNotFoundException {
+        File file = new File(filePath);
+        PrintWriter fileOut = new PrintWriter(file);
+        fileOut.println(input);
+        fileOut.close();
+    }
+    public static String getFileLine(String filePath) throws FileNotFoundException {
         File file = new File(filePath);
         Scanner input = new Scanner(file);
-        String output = "";
-        while (input.hasNextLine()) {
-            output += input.nextLine();
-        }
-        input.close();
-        return output;
+        return input.nextLine();
     }
     public static List getFileList(String filePath) throws FileNotFoundException {
         File file = new File(filePath);

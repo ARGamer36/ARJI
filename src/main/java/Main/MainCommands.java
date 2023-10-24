@@ -5,6 +5,7 @@ import Commands.Abstracts.PrefixCommand;
 import Commands.Abstracts.SlashCommand;
 import Information.ServerStorage;
 import Information.VariableChecks;
+import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -48,7 +49,7 @@ public abstract class MainCommands extends ListenerAdapter {
             }
         }
     }
-    public static void sendServerMessage(GuildReadyEvent event, String message) {
+    public static void sendServerMessage(GenericGuildEvent event, String message) {
         String botChannel = VariableChecks.getBotChannel(event);
         event.getGuild().getTextChannelById(botChannel).sendMessage(message).queue();
     }

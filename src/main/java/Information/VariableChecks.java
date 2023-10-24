@@ -1,5 +1,6 @@
 package Information;
 
+import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 
 import java.io.FileNotFoundException;
@@ -10,7 +11,7 @@ public class VariableChecks {
     public static void setPrefix(String prefix) {
         PREFIX = prefix;
     }
-    public static String getBotChannel(GuildReadyEvent event) {
+    public static String getBotChannel(GenericGuildEvent event) {
         String filepath = ServerStorage.getInfoFilePath(event.getGuild(), "botChannel.txt");
         try {
             botChannel = FileAccessor.getFileLine(filepath);

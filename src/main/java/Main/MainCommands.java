@@ -7,6 +7,7 @@ import Information.ServerStorage;
 import Information.VariableChecks;
 import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.CommandData;
@@ -41,6 +42,16 @@ public abstract class MainCommands extends ListenerAdapter {
             commandData.add(slashCommand.getData());
         }
         event.getGuild().updateCommands().addCommands(commandData).queue();
+    }
+
+    @Override
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        String command = event.getName();
+        for (SlashCommand slashCommand : slashCommands) {
+            if (command.equalsIgnoreCase(slashCommand.name)) {
+                slashCommand.action(event);
+            }
+        }
     }
 
     @Override

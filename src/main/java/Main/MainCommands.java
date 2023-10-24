@@ -48,7 +48,7 @@ public abstract class MainCommands extends ListenerAdapter {
             }
         }
     }
-    public void sendServerMessage(GuildReadyEvent event, String message) {
+    public static void sendServerMessage(GuildReadyEvent event, String message) {
         String botChannel = VariableChecks.getBotChannel(event);
         event.getGuild().getTextChannelById(botChannel).sendMessage(message).queue();
     }

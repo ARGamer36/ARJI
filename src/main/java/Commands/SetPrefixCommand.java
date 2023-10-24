@@ -6,11 +6,9 @@ import Information.VariableChecks;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class SetPrefixCommand extends PrefixCommand {
-    public VariableChecks variableChecks;
-    public SetPrefixCommand(VariableChecks vChecks) {
+    public SetPrefixCommand() {
         name = "setPrefix";
         description = "Sets prefix to given value";
-        variableChecks = vChecks;
     }
 
     @Override
@@ -21,7 +19,7 @@ public class SetPrefixCommand extends PrefixCommand {
                 event.getMessage().reply("Please provide a prefix").queue();
             } else {
                 String prefix = messageArray[1];
-                variableChecks.setPrefix(prefix);
+                VariableChecks.setPrefix(prefix);
                 event.getMessage().reply("Prefix set to **__" + prefix + "__**").queue();
             }
         }

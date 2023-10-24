@@ -16,13 +16,11 @@ import java.util.List;
 public abstract class MainCommands extends ListenerAdapter {
     public List<PrefixCommand> prefixCommands;
     public List<SlashCommand> slashCommands;
-    public VariableChecks variableChecks;
     public MainCommands(String version) {
-        variableChecks = new VariableChecks();
         prefixCommands = new ArrayList<>();
         prefixCommands.add(new VersionCommand(version));
         prefixCommands.add(new OnCommand());
-        prefixCommands.add(new SetPrefixCommand(variableChecks));
+        prefixCommands.add(new SetPrefixCommand());
         prefixCommands.add(new PingCommand());
         prefixCommands.add(new BuildTime());
     }
@@ -40,7 +38,7 @@ public abstract class MainCommands extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String fullMessage = event.getMessage().getContentRaw();
-        if (fullMessage.startsWith(variableChecks.PREFIX)) {
+        if (fullMessage.startsWith(VariableChecks.PREFIX)) {
             String[] messageArray = fullMessage.split(" ");
             String command = messageArray[0].substring(1);
             for (PrefixCommand prefixCommand : prefixCommands) {
@@ -51,7 +49,7 @@ public abstract class MainCommands extends ListenerAdapter {
         }
     }
     public void sendServerMessage(GuildReadyEvent event, String message) {
-        String botChannel = variableChecks.getBotChannel(event);
+        String botChannel = VariableChecks.getBotChannel(event);
         event.getGuild().getTextChannelById(botChannel).sendMessage(message).queue();
     }
 }

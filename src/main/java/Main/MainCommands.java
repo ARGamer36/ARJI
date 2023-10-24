@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.build.CommandData;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -34,6 +35,11 @@ public abstract class MainCommands extends ListenerAdapter {
             event.getGuild().getSystemChannel().sendMessage("FAILED TO STORE INFO");
         }
         sendServerMessage(event, "Bot Activated");
+        List<CommandData> commandData = new ArrayList<>();
+        for (SlashCommand slashCommand : slashCommands) {
+            commandData.add(slashCommand.getData());
+        }
+        event.getGuild().updateCommands().addCommands(commandData).queue();
     }
 
     @Override

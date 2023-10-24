@@ -5,12 +5,12 @@ import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import java.io.FileNotFoundException;
 
 public class VariableChecks {
-    public static String PREFIX = "!";
-    private static String botChannel;
-    public static void setPrefix(String prefix) {
+    public String PREFIX = "!";
+    private String botChannel;
+    public void setPrefix(String prefix) {
         PREFIX = prefix;
     }
-    public static String getBotChannel(GuildReadyEvent event) {
+    public String getBotChannel(GuildReadyEvent event) {
         if (botChannel == null) {
             String filepath = ServerStorage.getInfoFilePath(event.getGuild(), "botChannel.txt");
             try {

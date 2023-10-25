@@ -19,7 +19,7 @@ public class SetPrefixCommand extends PrefixCommand {
                 event.getMessage().reply("Please provide a prefix").queue();
             } else {
                 String prefix = messageArray[1];
-                VariableChecks.setPrefix(prefix);
+                VariableChecks.setPrefix(event.getGuild(), prefix);
                 event.getMessage().reply("Prefix set to **__" + prefix + "__**").queue();
             }
         }

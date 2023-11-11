@@ -5,6 +5,7 @@ import Commands.Abstracts.PrefixCommand;
 import Commands.Abstracts.SlashCommand;
 import Information.ServerStorage;
 import Information.VariableChecks;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -36,7 +37,7 @@ public abstract class MainCommands extends ListenerAdapter {
         } catch (IOException e) {
             event.getGuild().getSystemChannel().sendMessage("FAILED TO STORE INFO");
         }
-        sendServerMessage(event, "Bot Activated");
+        sendServerMessage(event.getGuild(), "Bot Activated");
         List<CommandData> commandData = new ArrayList<>();
         for (SlashCommand slashCommand : slashCommands) {
             commandData.add(slashCommand.getData());
@@ -57,7 +58,7 @@ public abstract class MainCommands extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String fullMessage = event.getMessage().getContentRaw();
-        if (fullMessage.startsWith(VariableChecks.PREFIX)) {
+        if (fullMessage.startsWith(VariableChecks.getPrefix(event.getGuild()))) {
             String[] messageArray = fullMessage.split(" ");
             String command = messageArray[0].substring(1);
             for (PrefixCommand prefixCommand : prefixCommands) {
@@ -67,8 +68,8 @@ public abstract class MainCommands extends ListenerAdapter {
             }
         }
     }
-    public static void sendServerMessage(GenericGuildEvent event, String message) {
-        String botChannel = VariableChecks.getBotChannel(event);
-        event.getGuild().getTextChannelById(botChannel).sendMessage(message).queue();
+    public static void sendServerMessage(Guild guild, String message) {
+        String botChannel = VariableChecks.getBotChannel(guild);
+        guild.getTextChannelById(botChannel).sendMessage(message).queue();
     }
 }

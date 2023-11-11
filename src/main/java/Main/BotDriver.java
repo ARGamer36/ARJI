@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 
-public abstract class BotDriver {
+public abstract class BotDriver { // test
     protected final Dotenv config;
     protected final ShardManager shardManager;
     protected static String VERSION;

@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import net.dv8tion.jda.api.entities.Member;
 

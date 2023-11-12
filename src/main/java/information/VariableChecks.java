@@ -1,4 +1,4 @@
-package Information;
+package information;
 
 import net.dv8tion.jda.api.entities.Guild;
 

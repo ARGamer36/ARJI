@@ -1,11 +1,9 @@
-package Commands;
+package commands;
 
-import Commands.Abstracts.PrefixCommand;
-import Information.FileAccessor;
-import Main.ClearanceChecks;
+import commands.abstracts.PrefixCommand;
+import main.ClearanceChecks;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

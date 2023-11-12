@@ -1,7 +1,7 @@
-package Commands;
+package commands;
 
-import Commands.Abstracts.PrefixCommand;
-import Main.ClearanceChecks;
+import commands.abstracts.PrefixCommand;
+import main.ClearanceChecks;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 

@@ -1,8 +1,8 @@
-package Commands;
+package commands;
 
-import Commands.Abstracts.PrefixCommand;
-import Main.ClearanceChecks;
-import Information.VariableChecks;
+import commands.abstracts.PrefixCommand;
+import main.ClearanceChecks;
+import information.VariableChecks;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class SetPrefixCommand extends PrefixCommand {

@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.OnlineStatus;

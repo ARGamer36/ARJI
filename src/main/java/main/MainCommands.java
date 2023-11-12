@@ -1,12 +1,11 @@
-package Main;
+package main;
 
-import Commands.*;
-import Commands.Abstracts.PrefixCommand;
-import Commands.Abstracts.SlashCommand;
-import Information.ServerStorage;
-import Information.VariableChecks;
+import commands.*;
+import commands.abstracts.PrefixCommand;
+import commands.abstracts.SlashCommand;
+import information.ServerStorage;
+import information.VariableChecks;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.guild.GenericGuildEvent;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
